@@ -38,22 +38,26 @@
         <p>Wellcome to the world of Monko</p>
     </div>
 
-        <?php 
-            if (isset($_SESSION['username'])) {
-                echo "<div class='content'> 
-                        <p>
-                            <a href='/forum/newtopic.php?cid=".$_GET['cid']."&scid=".$_GET['scid']."'>
-                            Add New Topic
-                            </a>
-                        </p>
-                        </div>";
-            }
-
-         ?>
-
     <div class="content">
         <?php
-                 disp_topics($_GET['cid'], $_GET['scid']); 
+            if (isset($_SESSION['username'])) {
+                echo "<form action='/forum/addnewtopic.php?cid=".$_GET['cid']."&scid=".$_GET['scid']."'
+                        method='POST'>
+                        
+                        <p>Title: </p>
+                        <input type='text' id='topic' name='topic' size='100'>
+                        
+                        <p>Content:</p>
+                        <textarea id='content' name='content'></textarea>
+                        <br>
+                        <input type='submit' value='add new post' />
+                      </form>";
+            } else{
+                echo "<p> Please login first or 
+                        <a href='/forum/registration.html'>click here</a> 
+                        to register.
+                      </p>";
+            }
         ?>
     </div>
 </body>

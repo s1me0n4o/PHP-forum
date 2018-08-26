@@ -12,7 +12,7 @@
 </head>
 <body>
     <div>
-        <h1>Trying to create a forum</h1>
+        <h1><a href="/forum">Trying to create a forum</a></h1>
     </div>
 
   <?php
