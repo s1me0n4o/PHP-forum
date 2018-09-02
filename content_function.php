@@ -5,7 +5,7 @@
 		$select = mysqli_query($connection, "select * from categories");
 
 		 while ($row = mysqli_fetch_assoc($select)) {
-		 	echo "<table class = 'cat-table'>";
+		 	echo "<table class = 'table table-hover table-dark'>";
 		 	echo "<tr><td class = 'main-cat' colspan = '2'>".$row['dsc']."</td></tr>";
 			display_sub_cat($row['id']);
 			echo "</table>";
@@ -15,18 +15,17 @@
 	function display_sub_cat($parent_id) {
 		include('db_connection.php');
 
-		$select = mysqli_query($connection, "select sc.cat_id, sc.id, sc.subcat_title, sc.subcat_dsc 
+		$select = mysqli_query($connection, "select sc.cat_id, sc.id, sc.subcat_title
 									   from categories c 
 									   		inner join sub_categories sc on c.id = sc.cat_id 
 									   where ($parent_id = c.id) and ($parent_id = sc.cat_id)");
 
-		echo "<tr><th width='90%'>Categories</th><th width='10%'>Topics</th></tr>";
+		echo "<tr><th class='sub-cat' width='90%'>Categories</th><th class='sub-cat' width='10%'>Topics</th></tr>";
 
 		while ($row = mysqli_fetch_assoc($select)) {
 			echo "<tr><td class='cat_title'>
 					<a href='/forum/topic.php?cid=".$row['cat_id']."&scid=".$row['id']."'>".$row['subcat_title']."</br>";
-			echo $row['subcat_dsc']."</a></td>";
-			echo "<td class = 'num-topic'>".getnumtopics($parent_id, $row['id'])."</td>
+			echo "<td class = 'cat_title'>".getnumtopics($parent_id, $row['id'])."</td>
 				</tr>";
 		}
 	};
@@ -52,18 +51,18 @@
 											 order by t.id desc");
 
 		if (mysqli_num_rows($select) != 0) {
-			echo "<table class='topic-table'>";
-			echo "<tr><th>Title</th><th>Posted By</th><th>Date Posted</th><th>Views</th><th>Replies</th></tr>";
+			echo "<table class='table table-hover table-dark'>";
+			echo "<tr class = 'main-cat'><th>Title</th><th>Posted By</th><th>Date Posted</th><th>Views</th><th>Replies</th></tr>";
 
 			while ($row = mysqli_fetch_assoc($select)) {
-				echo "<tr>
+				echo "<tr class='cat_title'>
 						<td><a href='/forum/readtopic.php?cid=".$cat_id."&scid=".$subcat_id."&tid=".$row['id']."'>".$row['title']."</a></td>
 						<td>".$row['author']."</td><td>".$row['date_created']."</td><td>".$row['views']."</td><td>".$row['replies']."</td>
 					  </tr>";
 			}
 			echo "</table>";
 		}else {
-			echo "<p>This category has no topics yet! <a href='/forum/newtopic.php?cid=".$cat_id."&scid=".$subcat_id."'>
+			echo "<p id='new-topic'><span>This category has no topics yet!</span> <a href='/forum/newtopic.php?cid=".$cat_id."&scid=".$subcat_id."'>
 					Feel free to add the first topic right now!</a></p>";
 		};
 	};
@@ -81,11 +80,14 @@
 		$row = mysqli_fetch_assoc($select);
 
 		echo nl2br("<div class='content'>
-					<h2 class='title'>".$row['title']."</h2>
-						<p>".$row['author']."\n".$row['date_created']."</p>
-					</div>");
+					<h2 class='main-cat'>".$row['title']."</h2>
+					<div class='sub-cat'><p>".$row['content']."</p></div>
+						<p><span>Posted by: ".$row['author']."\n".$row['date_created']."</span></p>
+					");
 
-		echo "<div class='content'><p>".$row['content']."</p></div>";
+		 echo "<p class='reply-post'>All Replies(".count_replies($_GET['cid'],$_GET['scid'],$_GET['tid']).")  
+               </p></div>";
+
 	}
 
 	function updviews($cid, $scid, $tid){
@@ -97,7 +99,7 @@
 	}
  	
 	function reply_link($cid, $scid, $tid){
-		echo "<p><a href='/forum/replys.php?cid=".$cid."&scid=".$scid."&tid=".$tid."'>Reply to this post!</a></p>";
+		echo "<p><a id='reply' href='/forum/replys.php?cid=".$cid."&scid=".$scid."&tid=".$tid."'>Reply to this post!</a></p>";
 	}
 
  	function reply_post($cid, $scid, $tid){
@@ -105,8 +107,8 @@
 			 <div class='content'>
 			    <form action='/forum/addreply.php?cid=".$cid."&scid=".$scid."&tid=".$tid."' method='POST'>
 			        <p>Comment:</p>
-			        <textarea cols='100' rows='10' id='comment' name='comment'></textarea>
-			        <input type='submit' value='Add Comment'>
+			        <textarea cols='40' rows='10' id='comment' name='comment'></textarea>
+			        <input id='submit-reply' type='submit' value='Add Comment'>
 			    </form>
 			</div>";
  	}
@@ -126,11 +128,11 @@
  		if (mysqli_num_rows($select) != 0){
  			
  			echo "<div class='content'>
-    			  	<table class='reply-table'>";
+    			  	<table class='table table-sm'>";
 					    while ($row = mysqli_fetch_assoc($select)){
 					    echo nl2br("<tr>
-					            		<th width='15%'>".$row['author']."</th>
-					            			<td>".$row['date_created']."\n".$row['coment']."\n\n</td>
+					            		<th class='reply-post' width='15%'>Posted by: ".$row['author']."</th>
+					            		<td class='reply-post'>".$row['coment']."\n <span>".$row['date_created']."\n\n</span></td>
 					    			</tr>");
 						} 
    			echo "</table></div>";

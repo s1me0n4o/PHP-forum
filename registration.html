@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
-<body>
-    <h1>Wellcome to the forum</h1>
-    <h2>Please write your Username and Password below:</h2>
+<body class="registration">
+    <div class="wrapper">
+        <h1 class="reg">WELLCOME TO OUR SIMPLE FORUM</h1> 
+        <h2>In order to register please write your Username and Password below:</h2>
 
-    <form action="add_user.php" method="post">
-        <p>Username:</p>
-        <input type="text" placeholder="Username" name="username">
-        <p>Password</p>
-        <input type="password" placeholder="Password" name="password">
-        <input type="submit" value="Registration">
-    </form>
+        <form action="add_user.php" method="post">
+            <p>Username:</p>
+            <input type="text" placeholder="Username..." name="username">
+            <p>Password:</p>
+            <input type="password" placeholder="Password..." name="password">
+            <input type="submit" value="Registration" id="submit">
+        </form>
+    </div>
 </body>
 
 </html>
+
+
+
+
