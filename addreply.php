@@ -13,6 +13,6 @@
 						   				");
 
 	if ($insert){
-		header("Location: /forum/readtopic.php?cid=".$cid."&scid=".$scid."&tid=".$tid."");
+		header("Location: ./readtopic.php?cid=".$cid."&scid=".$scid."&tid=".$tid."");
 	}
  ?>
