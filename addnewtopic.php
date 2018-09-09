@@ -14,5 +14,5 @@
 		 values(".$cid.", ".$scid.", '".$_SESSION['username']."', '".$topic."', '".$content."', 0, NOW())");
 
 	if($insert){
-		header("Location: /forum/topic.php?cid=".$cid."&scid=".$scid."");
+		header("Location: ./topic.php?cid=".$cid."&scid=".$scid."");
 	}
