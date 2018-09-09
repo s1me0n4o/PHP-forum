@@ -9,5 +9,5 @@
                                             values('".$usr."','".$psw."');");
 
     if ($insert){
-        header("Location: /forum/index.php?status=reg_success");
+        header("Location: ./index.php?status=reg_success");
     }
