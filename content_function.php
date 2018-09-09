@@ -24,7 +24,7 @@
 
 		while ($row = mysqli_fetch_assoc($select)) {
 			echo "<tr><td class='cat_title'>
-					<a href='/forum/topic.php?cid=".$row['cat_id']."&scid=".$row['id']."'>".$row['subcat_title']."</br>";
+					<a href='http://dekforum.gearhostpreview.com/forum/topic.php?cid=".$row['cat_id']."&scid=".$row['id']."'>".$row['subcat_title']."</br>";
 			echo "<td class = 'cat_title'>".getnumtopics($parent_id, $row['id'])."</td>
 				</tr>";
 		}
