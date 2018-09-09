@@ -24,7 +24,7 @@
 
 		while ($row = mysqli_fetch_assoc($select)) {
 			echo "<tr><td class='cat_title'>
-					<a href='http://dekforum.gearhostpreview.com/forum/topic.php?cid=".$row['cat_id']."&scid=".$row['id']."'>".$row['subcat_title']."</br>";
+					<a href='./topic.php?cid=".$row['cat_id']."&scid=".$row['id']."'>".$row['subcat_title']."</br>";
 			echo "<td class = 'cat_title'>".getnumtopics($parent_id, $row['id'])."</td>
 				</tr>";
 		}
@@ -56,13 +56,13 @@
 
 			while ($row = mysqli_fetch_assoc($select)) {
 				echo "<tr class='cat_title'>
-						<td><a href='/forum/readtopic.php?cid=".$cat_id."&scid=".$subcat_id."&tid=".$row['id']."'>".$row['title']."</a></td>
+						<td><a href='./readtopic.php?cid=".$cat_id."&scid=".$subcat_id."&tid=".$row['id']."'>".$row['title']."</a></td>
 						<td>".$row['author']."</td><td>".$row['date_created']."</td><td>".$row['views']."</td><td>".$row['replies']."</td>
 					  </tr>";
 			}
 			echo "</table>";
 		}else {
-			echo "<p id='new-topic'><span>This category has no topics yet!</span> <a href='/forum/newtopic.php?cid=".$cat_id."&scid=".$subcat_id."'>
+			echo "<p id='new-topic'><span>This category has no topics yet!</span> <a href='./newtopic.php?cid=".$cat_id."&scid=".$subcat_id."'>
 					Feel free to add the first topic right now!</a></p>";
 		};
 	};
@@ -99,13 +99,13 @@
 	}
  	
 	function reply_link($cid, $scid, $tid){
-		echo "<p><a id='reply' href='/forum/replys.php?cid=".$cid."&scid=".$scid."&tid=".$tid."'>Reply to this post!</a></p>";
+		echo "<p><a id='reply' href='./replys.php?cid=".$cid."&scid=".$scid."&tid=".$tid."'>Reply to this post!</a></p>";
 	}
 
  	function reply_post($cid, $scid, $tid){
  		echo "
 			 <div class='content'>
-			    <form action='/forum/addreply.php?cid=".$cid."&scid=".$scid."&tid=".$tid."' method='POST'>
+			    <form action='./addreply.php?cid=".$cid."&scid=".$scid."&tid=".$tid."' method='POST'>
 			        <p>Comment:</p>
 			        <textarea cols='40' rows='10' id='comment' name='comment'></textarea>
 			        <input id='submit-reply' type='submit' value='Add Comment'>
