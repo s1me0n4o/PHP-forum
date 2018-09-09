@@ -68,7 +68,7 @@ form input[type="password"]
 }
 
  
-#submit,
+#submit
 {
     background-color: #ccc;
     -moz-border-radius: 5px;
