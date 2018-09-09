@@ -15,7 +15,7 @@
 <body>
     <header class=head-index>
         <h1>
-            <a href="/forum">
+            <a href="./index.php">
                 <ul class="fly-text hid">
                     <li>D</li>
                     <li>E</li>
@@ -75,7 +75,7 @@
 
         <?php 
             if(!isset($_SESSION['username'])){
-                echo "<p>You are not loged in. Please login first or <a href='/forum/registration.html'>click here</a> to register.</p>";
+                echo "<p>You are not loged in. Please login first or <a href='./registration.html'>click here</a> to register.</p>";
             }
         ?>
     </div>
@@ -97,6 +97,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"        crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+        $(document).ready(() => { });
         $('#ModalBtn').on('shown.bs.modal', function () {
         $('#orangeForm-name').trigger('focus')
         });
