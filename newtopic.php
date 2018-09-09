@@ -15,7 +15,7 @@
 <body>
     <header class=head-index>
         <h1>
-            <a href="/forum">
+            <a href="./index.php">
                 <ul class="fly-text hid">
                     <li>D</li>
                     <li>E</li>
@@ -76,7 +76,7 @@
     <div class="content">
         <?php
             if (isset($_SESSION['username'])) {
-                echo "<form class='topic-form' action='/forum/addnewtopic.php?cid=".$_GET['cid']."&scid=".$_GET['scid']."'
+                echo "<form class='topic-form' action='./addnewtopic.php?cid=".$_GET['cid']."&scid=".$_GET['scid']."'
                         method='POST'>
                         
                         <p>Title: </p>
@@ -89,7 +89,7 @@
                       </form>";
             } else{
                 echo "<p> Please login first or 
-                        <a href='/forum/registration.html'>click here</a> 
+                        <a href='./registration.html'>click here</a> 
                         to register.
                       </p>";
             }
