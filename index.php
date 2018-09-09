@@ -15,7 +15,7 @@
 <body>
     <header class=head-index>
         <h1>
-            <a href="/forum">
+            <a href="./index.php">
                 <ul class="fly-text hid">
                     <li>D</li>
                     <li>E</li>
