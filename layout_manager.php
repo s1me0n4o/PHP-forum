@@ -10,7 +10,7 @@
               <input type='password' name='password' id='password' placeholder='Password...''/>
               
               <input type='submit' value='Login' />
-              <button type='button' onclick='location.href=\"./forum/registration.html\";'>Register</button>
+              <button type='button' onclick='location.href=\"http://dekforum.gearhostpreview.com/forum/registration.html\";'>Register</button>
             </form>";
           }
 ?>
