@@ -396,7 +396,7 @@ body > div:nth-child(3) > p.reply-post{
 
 /*Media Query*/
 
-@media(min-width: 576px) {
+@media(max-width: 767.98px) {
 .fly-text{
     list-style: none;
     position: absolute;
