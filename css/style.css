@@ -392,3 +392,33 @@ body > div:nth-child(3) > p.reply-post{
 #new-topic > span{
     color: #fff;
 }
+
+
+/*Media Query*/
+
+@media(min-width: 768px) {
+.fly-text{
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+}
+
+.fly-text li{
+    display: inline-block;
+    color: #fff;
+    margin-right: 20px;
+    font-weight: 100;
+    font-size: 1em;
+    opacity:1;
+    transition: all 2.5s ease;
+    color:rgb(226,90,12);
+    font-style: italic;
+    font-family: 'Indie Flower', cursive;
+
+}
+body{
+background: url(../images/background 2.jpg) no-repeat -200px -200px;
+}
