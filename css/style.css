@@ -396,7 +396,7 @@ body > div:nth-child(3) > p.reply-post{
 
 /*Media Query*/
 
-@media(min-width: 768px) {
+@media(min-width: 576px) {
 .fly-text{
     list-style: none;
     position: absolute;
@@ -417,8 +417,10 @@ body > div:nth-child(3) > p.reply-post{
     color:rgb(226,90,12);
     font-style: italic;
     font-family: 'Indie Flower', cursive;
+}
 
-}
 body{
-background: url(../images/background 2.jpg) no-repeat -200px -200px;
+	background: url(../images/background 2.jpg) no-repeat -200px -200px;
 }
+
+}	
