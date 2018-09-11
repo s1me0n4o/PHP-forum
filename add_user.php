@@ -18,3 +18,6 @@
     if ($insert){
         header("Location: ./index.php?status=reg_success");
     }
+    else {
+        $msg = "Emty User or Password! Please try again!"
+    }
