@@ -15,9 +15,9 @@
 
         <form action="add_user.php" method="post">
             <p>Username:</p>
-            <input type="text" placeholder="Username..." name="username">
+            <input type="text" placeholder="Username..." name="username" pattern=".{3,30}">
             <p>Password:</p>
-            <input type="password" placeholder="Password..." name="password">
+            <input type="password" placeholder="Password..." name="password pattern=".{5,30}">
             <input type="submit" value="Registration" id="submit">
         </form>
     </div>
